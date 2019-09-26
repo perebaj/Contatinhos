@@ -9,21 +9,24 @@
 
 using namespace std;
 
-bool interpreter(string argzero){
-    if(argzero.compare("I") == 0){
-        cout << "Inserção" << endl;
+bool interpreter(vector<string> args){
+    map<string, string> contact_schedule;
+    if((args[0]).compare("I") == 0){
+        contact_schedule.insert({args[1],args[2]});
+        cout << "Inserido" << endl;
         return true;
     }
-    else if(argzero.compare("R") == 0){
+    else if((args[0]).compare("R") == 0){
         cout << "Remoção" << endl;
         return true;
     }
-    else if(argzero.compare("A") == 0){
+    else if((args[0]).compare("A") == 0){
+        contact_schedule.erase(args[1]);
         cout << "Alteração" << endl;
         return true;
     }
-    else if (argzero.compare("S") == 0){
-        cout << "Sainda" << endl;
+    else if ((args[0]).compare("S") == 0){
+        cout << "Saindo" << endl;
         return false;
     }
     else return false;
@@ -52,7 +55,7 @@ int main()
     bool flag;
     do{
         input = splitted();
-        flag = interpreter(input[0]);
+        flag = interpreter(input);
         
     }while(flag);
 
