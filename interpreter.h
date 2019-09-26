@@ -20,11 +20,10 @@ public:
     // virtual ~interpreter();
     list<worker*> *workers;
     void exec();
-    bool run_all(vector<string> comand);
+    bool run_all(vector<string> input);
     vector<string> read();
 private:
     string _input;
-    // ifstream *_file;
 };
 
 #endif
